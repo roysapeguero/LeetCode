@@ -7,7 +7,7 @@ var maxProfit = function(prices) {
 
     while (r < prices.length) {
         if (prices[l] < prices[r]) {
-            maxProfit = Math.max(prices[r] - prices[l], maxProfit)
+            maxProfit = prices[r] - prices[l] > maxProfit ? maxProfit = prices[r] - prices[l] : maxProfit
         } else l = r
         r++
     }
