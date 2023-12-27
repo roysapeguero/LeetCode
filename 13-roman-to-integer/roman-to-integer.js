@@ -3,7 +3,6 @@
  * @return {number}
  */
 var romanToInt = function(s) {
-    let total = 0
     let key = {
         'I': 1,
         'V': 5,
@@ -14,12 +13,17 @@ var romanToInt = function(s) {
         'M': 1000
     }
 
+    let total = 0
+    
     for (let i = 0; i < s.length; i++) {
-        let char = s[i]
-        if (key[char] < key[s[i + 1]]) { 
-            total += key[s[i+1]] - key[char] 
+        let curr = key[s[i]]
+        let next = key[s[i + 1]]
+
+        if (curr < next) { 
+            total += next - curr
             i++
-        } else total += key[char]
+        } else total += curr
     } 
+
     return total
 };
