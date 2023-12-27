@@ -11,12 +11,11 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let pos = 0
     let curr = head
     
     while (curr) {
         if (!curr.pos) {
-            curr.pos = pos++
+            curr.pos = 1
             curr = curr.next
         } else return true
     }
