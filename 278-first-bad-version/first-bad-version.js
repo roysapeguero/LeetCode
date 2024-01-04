@@ -19,6 +19,7 @@ var solution = function(isBadVersion) {
      */
     return function(n) {
         let start = 1, end = n
+
         while (start < end) {
             let mid = Math.floor(start + (end - start) / 2)
             if (isBadVersion(mid)) {
@@ -30,5 +31,3 @@ var solution = function(isBadVersion) {
         return start
     };
 };
-//        i
-// [1, 2, 3, 4, 5]
