@@ -3,10 +3,11 @@
  * @return {number}
  */
 var hammingWeight = function(n) {
-    let nStr = n.toString(2), count = 0
+    let bitCount = 0
 
-    for (let num of nStr) {
-        if (num === '1') count++
+    while (n !== 0) {
+        n &= n - 1
+        bitCount++ 
     }
-    return count
+    return bitCount
 };
