@@ -3,14 +3,17 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let l = 0, r = 1
+    let [left, right] = [0, 0]
 
-    while (r < nums.length) {
-        if (nums[l] !== nums[r]) {
-            l++
-            nums[l] = nums[r]
+    while (right < nums.length) {
+        const [leftVal, rightVal] = [nums[left], nums[right]]
+
+        const isEqual = (nums[left] === nums[right])
+        if (!isEqual) {
+            left++
+            nums[left] = rightVal
         }
-        r++
+        right++
     }
-    return l + 1
+    return left + 1
 };
