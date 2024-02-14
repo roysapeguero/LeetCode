@@ -6,12 +6,11 @@
 var countStudents = function(students, sandwiches) {
 
     while (students.length) {
+        if (students.indexOf(sandwiches[0]) === -1) break
         let curr = students.shift()
 
         if (curr !== sandwiches[0]) students.push(curr)
         else sandwiches.shift()
-
-        if (students.indexOf(sandwiches[0]) === -1) break
     }
     return students.length
 };
