@@ -15,14 +15,24 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    return this.queue.pop()
+    let size = this.queue.length
+    for (let i = 0; i < size - 1; i++) {
+        this.queue.push(this.queue.shift())
+    }
+    return this.queue.shift()
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    return this.queue[this.queue.length - 1]
+    let size = this.queue.length
+    for (let i = 0; i < size - 1; i++) {
+        this.queue.push(this.queue.shift())
+    }
+    let res = this.queue.shift()
+    this.queue.push(res)
+    return res
 };
 
 /**
