@@ -5,16 +5,18 @@
  */
 var isAnagram = function(s, t) {
     if (s.length !== t.length) return false
-    let hash = {}
+    let count = new Map()
 
     for (let char of s) {
-        if (hash[char] !== undefined) hash[char]++
-        else hash[char] = 1
+        count.set(char, (count.get(char) || 0) + 1)
     }
 
     for (let char of t) {
-        if (hash[char] > 0) hash[char]--
-        else return false
+        count.set(char, count.get(char) - 1)
+        if (count.get(char) === 0) {
+            count.delete(char)
+        }
     }
-    return true
+    
+    return !count.size
 };
