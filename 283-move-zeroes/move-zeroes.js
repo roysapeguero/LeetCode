@@ -10,15 +10,9 @@ var moveZeroes = function(nums) {
     let [l, r] = [0, 1]
 
     while (r < nums.length) {
-        if (nums[l] === 0 && nums[r] !== 0) {
-            nums[l] = nums[r]
-            nums[r] = 0
-            l++
-        }
-
+        if (nums[l] === 0 && nums[r] !== 0) [nums[l], nums[r]] = [nums[r], 0]
         if (nums[l] !== 0) l++
         r++
     }
-
     return nums
 };
