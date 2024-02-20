@@ -13,14 +13,12 @@ var countAndSay = function(n) {
 
         while (r <= prev.length) { 
             let curr = prev[l]
-            if (curr === prev[r]) {
-                r++ 
-            } else {
+            if (curr !== prev[r]) {
                 next += String(r - l) 
                 next += curr
                 l = r
-                r++
             }
+            r++
         }
         count.set(i, next)
     }
