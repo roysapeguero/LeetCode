@@ -8,7 +8,7 @@ var countAndSay = function(n) {
 
     for (let i = 2; i <= n; i++) { 
         let prev = count.get(i - 1) 
-        let [l, r] = [0, 0]
+        let l = 0, r = 0
         let next = ''
 
         while (r <= prev.length) { 
