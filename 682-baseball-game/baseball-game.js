@@ -7,25 +7,28 @@ var calPoints = function(operations) {
     let stack = []
 
     for (let op of operations) {
-        if (op === 'C') {
-            score -= stack.pop()
-            continue
-        } 
-        if (op === 'D') {
-            let val = stack[stack.length - 1] * 2
-            stack.push(val)
-            score += val
-            continue
-        }
-        if (op === '+') {
-            let val = stack[stack.length - 1] + stack[stack.length - 2]
-            stack.push(val)
-            score += val
-            continue
-        } 
+        let [top1, top2] = [stack.length - 1, stack.length - 2]
+        let val;
 
-        stack.push(+op)
-        score += +op
+        switch(op) {
+            case 'C':
+                score -= stack.pop()
+                break; 
+            case 'D':
+                val = stack[top1] * 2
+                stack.push(val)
+                score += val
+                break;
+            case '+':
+                val = stack[top1] + stack[top2]
+                stack.push(val)
+                score += val
+                break; 
+            default:
+                stack.push(+op)
+                score += +op
+                break;
+        }
     }
     return score
 };
