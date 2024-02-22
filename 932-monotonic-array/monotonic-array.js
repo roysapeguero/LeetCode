@@ -3,11 +3,14 @@
  * @return {boolean}
  */
 var isMonotonic = function(nums) {
-    const increasing = (nums.toSorted((a, b) => a - b)).join(', ')
-    const decreasing = (nums.toSorted((a, b) => b - a)).join(', ')
-    const stringNums = nums.join(', ')
+    let increasing = true
+    let decreasing = true
+    
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] < nums[i - 1]) increasing = false
+        else if (nums[i] > nums[i - 1]) decreasing = false
 
-    if (increasing === stringNums) return true
-    if (decreasing === stringNums) return true
-    return false
+        if (!increasing && !decreasing) return false
+    }
+    return true
 };
