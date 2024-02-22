@@ -19,10 +19,8 @@ var romanToInt = function(s) {
         let curr = key[s[i]]
         let next = key[s[i + 1]]
 
-        if (curr < next) { 
-            total += next - curr
-            i++
-        } else total += curr
+        if (curr < next) total -= curr
+        else total += curr
     } 
 
     return total
