@@ -3,14 +3,20 @@
  * @return {number}
  */
 var lengthOfLastWord = function(s) {
-    // store split str in splitUp
-    // iterate from the end of splitUp
-    // get the length of splitUp at the last index that is not an empty string
+    // create variable length to track length
+    // create variable foundLast to track if last word was found with bool
+    // iterate from the end of s
+        // if s[i] is not empty, increment length and found last = true
+    // if found last is true and current char is an empty str return length
 
-    let splitUp = s.split(' ')
+    let foundLast = false
+    let length = 0
     
-    for (let i = splitUp.length -1; i >= 0; i--) {
-        if (!splitUp[i]) continue
-        return splitUp[i].length
+    for (let i = s.length -1; i >= 0; i--) {
+        if (s[i] != ' ') {
+            foundLast = true
+            length++
+        } else if (foundLast) break
     }
+    return length
 };
