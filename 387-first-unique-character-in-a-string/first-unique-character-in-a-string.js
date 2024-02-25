@@ -10,10 +10,10 @@ var firstUniqChar = function(s) {
             // continue
     // return -1
 
-    // for (let i = 0; i < s.length; i++) {
-    //     if (i === s.indexOf(s[i]) && i === s.lastIndexOf(s[i])) return i
-    // }
-    // return -1
+    for (let i = 0; i < s.length; i++) {
+        if (i === s.indexOf(s[i]) && i === s.lastIndexOf(s[i])) return i
+    }
+    return -1
 
     // // create a map 
     // // iterate through the string 
@@ -23,17 +23,17 @@ var firstUniqChar = function(s) {
     //     // look for the first instance of a char with only 1 index mapped and return
     // // return -1 if no values occur only once
 
-    const charIdx = new Map()
+    // const charIdx = new Map()
 
-    for (let char of s) {
-        charIdx.set(char, (charIdx.get(char) || 0) + 1);
-    }
+    // for (let char of s) {
+    //     charIdx.set(char, (charIdx.get(char) || 0) + 1);
+    // }
 
-    for (let i = 0; i < s.length; i++) {
-        if (charIdx.get(s[i]) === 1) {
-            return i;
-        }
-    }
+    // for (let i = 0; i < s.length; i++) {
+    //     if (charIdx.get(s[i]) === 1) {
+    //         return i;
+    //     }
+    // }
 
-    return -1 
+    // return -1 
 };
