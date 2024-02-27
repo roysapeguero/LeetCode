@@ -3,18 +3,25 @@
  * @return {boolean}
  */
 var judgeCircle = function(moves) {
-    let key = {
-        'U': +1,
-        'D': -1,
-        'R': +1.5,
-        'L': -1.5
-    }
 
     let total = 0
 
     for (let move of moves) {
-        total += key[move]
-        console.log(total)
+        switch (move) {
+            case 'U':
+                total += 1
+                break;
+            case 'D':
+                total -= 1
+                break;
+            case 'R':
+                total += 1.5
+                break;
+            case 'L':
+                total -= 1.5
+                break;
+
+        }
     }
 
     return total === 0
