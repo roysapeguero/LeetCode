@@ -3,26 +3,26 @@
  * @return {boolean}
  */
 var judgeCircle = function(moves) {
-
-    let total = 0
+    let vertical = 0
+    let horizontal = 0
 
     for (let move of moves) {
         switch (move) {
             case 'U':
-                total += 1
+                vertical++
                 break;
             case 'D':
-                total -= 1
+                vertical--
                 break;
             case 'R':
-                total += 1.5
+                horizontal++
                 break;
             case 'L':
-                total -= 1.5
+                horizontal--
                 break;
 
         }
     }
 
-    return total === 0
+    return !vertical && !horizontal
 };
