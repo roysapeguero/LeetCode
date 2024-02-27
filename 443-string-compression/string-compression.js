@@ -5,7 +5,6 @@
 var compress = function(chars) {
     let l = 0
     let r = 1
-    let s = ''
 
     let length = chars.length
 
@@ -13,11 +12,9 @@ var compress = function(chars) {
         let currChar = chars[l]
         let nextChar = chars[r]
         if (nextChar !== currChar || r === length) {
-            s += currChar
-            if (r - l > 1) s += r - l 
+            chars.push(currChar)
+            if (r - l > 1 || r - l > 10) chars.push( ...String(r - l).split('') )
             l = r 
-            chars.push( ...s.split('') ) 
-            s = '' 
         }
         r++ 
     }
