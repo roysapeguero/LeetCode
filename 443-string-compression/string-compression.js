@@ -10,7 +10,8 @@ var compress = function(chars) {
     let length = chars.length
 
     while (r <= length) {
-        let currChar = chars[l], nextChar = chars[r]
+        let currChar = chars[l]
+        let nextChar = chars[r]
         if (nextChar !== currChar || r === length) {
             s += currChar
             if (r - l > 1) s += r - l 
