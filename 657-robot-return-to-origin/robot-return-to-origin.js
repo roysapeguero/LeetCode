@@ -24,5 +24,5 @@ var judgeCircle = function(moves) {
         }
     }
 
-    return !vertical && !horizontal
+    return vertical === 0 && horizontal === 0
 };
